@@ -1,0 +1,47 @@
+{
+  "name": "rm-test",
+  "version": "1.0.0",
+  "description": "A simple test runner for TypeScript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richmiles/rm-test.git"
+  },
+  "keywords": [
+    "testing",
+    "unit",
+    "testing",
+    "integration",
+    "testing",
+    "functional",
+    "testing",
+    "TypeScript",
+    "test",
+    "runner",
+    "assertion",
+    "library",
+    "test",
+    "framework",
+    "testing",
+    "utilities",
+    "mocking",
+    "code",
+    "coverage",
+    "TDD",
+    "BDD",
+    "CI/CD",
+    "automated",
+    "testing",
+    "quality",
+    "assurance"
+  ],
+  "author": "Rich Miles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richmiles/rm-test/issues"
+  },
+  "homepage": "https://github.com/richmiles/rm-test#readme"
+}
