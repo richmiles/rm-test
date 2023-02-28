@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "A simple test runner for TypeScript.",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "test": "tsc -p tsconfig.test.json && node dist/test-runner.js"
+    "test": "tsc && node dist/test-runner.js"
   },
   "repository": {
     "type": "git",

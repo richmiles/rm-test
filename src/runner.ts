@@ -1,6 +1,7 @@
-import { TestResult } from './types';
+import { TestResult } from './types.js';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as compiler from './compiler.js';
 
 interface RMTestConfig {
   testMatch: string[];
@@ -27,7 +28,7 @@ function runTests(testSuites: { name: string, fn: () => void }[]): TestResult[] 
         error: null,
       });
     } catch (err) {
-    const error = err instanceof Error ? err as Error : new Error("Unknown");
+      const error = err instanceof Error ? err as Error : new Error("Unknown");
       const end = Date.now();
       results.push({
         name,
@@ -62,15 +63,15 @@ function findTestFiles(dir: string, testMatch: string[]): string[] {
 }
 
 function runTestsInDirectory(dir: string, testMatch: string[]): TestResult[] {
-    const testFilePaths = findTestFiles(dir, testMatch);
-    const testResults = testFilePaths.flatMap(runTestsInFile);
-    return testResults;
-  }
+  const testFilePaths = findTestFiles(dir, testMatch);
+  const testResults = testFilePaths.flatMap(runTestsInFile);
+  return testResults;
+}
 
 export function runAllTests() {
-    const config = loadConfig();
-    const rootDir = path.resolve('.');
-    const testResults = runTestsInDirectory(rootDir, config.testMatch);
-    return testResults;
-  }
-
+  compiler.compileSource();
+  const config = loadConfig();
+  const rootDir = path.resolve('.');
+  const testResults = runTestsInDirectory(rootDir, config.testMatch);
+  return testResults;
+}

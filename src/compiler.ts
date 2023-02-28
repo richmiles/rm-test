@@ -1,8 +1,9 @@
-import * as ts from 'typescript';
+import ts from 'typescript';
 
-export function compile() {
+export function compileSource() {
     // Load the tsconfig.json file and parse its contents
     const configFile = ts.readConfigFile('tsconfig.json', ts.sys.readFile);
+    console.log(configFile)
     const compilerOptions = ts.parseJsonConfigFileContent(
     configFile.config,
     ts.sys,
